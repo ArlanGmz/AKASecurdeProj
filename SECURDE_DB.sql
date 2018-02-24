@@ -1,4 +1,4 @@
--- WEBSITE NAME: 
+-- WEBSITE NAME: CraftCourt
 
 CREATE table users(
 	account_id INT AUTO_INCREMENT NOT NULL,
