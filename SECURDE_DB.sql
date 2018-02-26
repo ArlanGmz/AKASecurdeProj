@@ -1,5 +1,11 @@
 -- WEBSITE NAME: CraftCourt
 
+DROP SCHEMA IF EXISTS craftcourt_db;
+
+CREATE SCHEMA craftcourt_db; 
+
+USE craftcourt_db;
+
 CREATE table users(
 	account_id INT AUTO_INCREMENT NOT NULL,
     username VARCHAR(25) NOT NULL,
@@ -7,7 +13,7 @@ CREATE table users(
     email TEXT NOT NULL,
     contact_no INT NOT NULL,
     address LONGTEXT NOT NULL,
-    shop_id INT NULL
+    shop_id INT NULL,
     
     PRIMARY KEY (account_id)
 );
@@ -23,9 +29,9 @@ CREATE table shops(
     shop_address LONGTEXT NOT NULL,
     shop_email TEXT NOT NULL,
     shop_contact INT NOT NULL,
-    description VARCHAR(300)
+    description VARCHAR(300),
 
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
 
     CONSTRAINT opener
 		FOREIGN KEY (shop_owner) 
@@ -42,9 +48,9 @@ CREATE table products(
     price INT,
     description VARCHAR(250),
     p_type INT,
-    date_posted DATE
+    date_posted DATE,
     
-	PRIMARY KEY (product_id)
+	PRIMARY KEY (id),
     
     CONSTRAINT product_seller
 		FOREIGN KEY (seller_id) 
@@ -55,13 +61,13 @@ CREATE table product_inventory(
 	shop INT,
     product INT,
     inventory_id INT AUTO_INCREMENT,
-    p_status INT
+    p_status INT,
     
-    PRIMARY KEY (inventory_id)
+    PRIMARY KEY (inventory_id),
     
     CONSTRAINT seller
 		FOREIGN KEY (shop) 
-        REFERENCES shops(id)
+        REFERENCES shops(id),
 	CONSTRAINT item
 		FOREIGN KEY (product) 
         REFERENCES products(id)
