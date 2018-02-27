@@ -35,7 +35,7 @@ CREATE table shops(
 
     CONSTRAINT opener
 		FOREIGN KEY (shop_owner) 
-        REFERENCES users(id)
+        REFERENCES users(account_id)
 );
 
 -- A shop can have zero to many products
