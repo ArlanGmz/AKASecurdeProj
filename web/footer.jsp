@@ -1,6 +1,6 @@
 <%-- 
-    Document   : register
-    Created on : Feb 27, 2018, 12:02:04 AM
+    Document   : footer
+    Created on : Feb 27, 2018, 8:07:19 PM
     Author     : Alysa
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CraftCourt | Register</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <h1>Hello World!</h1>

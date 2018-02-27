@@ -12,5 +12,6 @@
         <title>CraftCourt | Payment Method</title>
     </head>
     <body>
+        <%@ include file = "header.jsp" %>
     </body>
 </html>
