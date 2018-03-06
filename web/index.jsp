@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-                <link rel="stylesheet" type="text/css" href="all.css">
+    <link rel="stylesheet" type="text/css" href="all.css">
    <script src="main.js"></script>
         <title>CraftCourt</title>
         <meta charset="UTF-8">
@@ -14,6 +14,18 @@ and open the template in the editor.
     </head>
     <body>
         <%@ include file = "header.jsp" %>
+        <div class="list">
+            <div class="gallery">
+                <img src="madoka_medalion_lineart__by_frozentempest-d9qkeh3.png" alt="madoka" width="300" height="200">
+                <div class="desc">Medallion</div>
+            </div>
+        
+            <div class="gallery">
+                <img src="dee6419850d9ec9032953b02bccf350d.jpg" alt="chaie" width="300" height="200">
+                <div class="desc">Chair</div>
+            </div>
+        </div>
+        
     </body>
 </html>
 

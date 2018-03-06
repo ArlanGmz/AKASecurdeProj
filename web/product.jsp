@@ -26,7 +26,7 @@
         </div>
         
         <div class="action">
-            <a href="cart_1"> Add to cart</a>
+            <a href="cart_1.jsp"> Add to cart</a>
         </div>
         
     </body>

@@ -9,7 +9,7 @@
 
         <div id = "header">
             <div id="website_name">
-                <a id="website_link" href="index.html" > 
+                <a id="website_link" href="index.jsp" > 
                     CraftCourt
                 </a>
             </div>
