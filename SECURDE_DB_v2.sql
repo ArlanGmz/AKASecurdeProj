@@ -97,8 +97,10 @@ INSERT INTO `p_type`
 			(15,'Weddings');
     
 INSERT INTO `p_status`
-	VALUES	(1,'Selling'),
-			(2,'Sold');
+	VALUES	(1,'Pending'),
+			(2,'Approved'),
+            (3,'Disapproved'),
+			(4,'Sold Out');
     
 INSERT INTO `users`(`uname`,`pcode`,`firstname`,`lastname`,`email`) 
 	VALUES	('1_admin','01_admin', 'Jan', 'Lagayan','alylagayan@gmail.com'),
