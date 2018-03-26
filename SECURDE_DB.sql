@@ -11,8 +11,6 @@ CREATE table users(
     username VARCHAR(25) NOT NULL,
     password VARCHAR(80) NOT NULL,
     email TEXT NOT NULL,
-    contact_no VARCHAR(11) NOT NULL,
-    address LONGTEXT NOT NULL,
     shop_id INT NULL,
     
     PRIMARY KEY (account_id)
@@ -62,6 +60,7 @@ CREATE table products(
     description VARCHAR(250),
     p_type INT,
     date_posted DATE,
+	p_status INT,
     
 	PRIMARY KEY (id),
     
@@ -95,12 +94,23 @@ CREATE table product_inventory(
 
 CREATE table product_status(
 	status_id INT,
-    state TEXT
+    status TEXT
 );
 INSERT INTO `product_status`
 	(1,'For Sale'),
 	(2,'Sold');
 
-
+CREATE table product_type(
+	type_id INT,
+    type TEXT
+);
+INSERT INTO `product_type`
+	(1,'For Sale'),
+	(2,'Sold');
+-- THINGS TO DO:
+-- - Product Type Table
+-- - All products are Unique
+-- - Keep products to user; let them track inventory
+-- - Sold product table; set product status 
 		  
 
