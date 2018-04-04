@@ -1,24 +1,27 @@
 <?php
-	include 'database.php';
+	include_once 'database.php';
+	session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>CraftCourt</title>
+		<title>The Marketplace</title>
 		
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="custom.css">
+
 	</head>
 	
 	<body>
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar-inverse">
 		  <div class="container-fluid">
 			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">CraftCourt</a>
+			  <a class="navbar-brand" href="index.php">The Marketplace</a>
 			</div>
 			<form class="navbar-form navbar-left" action="/action_page.php">
 			  <div class="form-group">
@@ -26,12 +29,6 @@
 			  </div>
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
-			
-			<ul class="nav navbar-nav">
-				  <li><a href="#">Clothing</a></li>
-				  <li><a href="#">Entertainment</a></li>
-				  <li><a href="#">Tools</a></li>
-				</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
@@ -51,7 +48,7 @@
 					<h4 class="modal-title">Login Account</h4>
 				  </div>
 				  <div class="modal-body">
-					<form action="account_mng/login.php">
+					<form action="account_mng/login.php" method="post">
 						<div class="form-group">
 							<label for="uname">Username:</label>
 							<input type="text" class="form-control" id="uname">
@@ -80,7 +77,7 @@
 					<h4 class="modal-title">Create Account</h4>
 				  </div>
 				  <div class="modal-body">
-					<form action="account_mng/signup.php">
+					<form action="account_mng/signup.php" method="post">
 						<div class="form-group">
 							<label for="email">Email Address:</label>
 							<input type="email" class="form-control" id="email">

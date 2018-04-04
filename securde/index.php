@@ -1,21 +1,20 @@
 <?php
-	include 'header.php';
+	include_once 'header.php';
+	unset($_SESSION["product"]);
 ?>
 
 	<?php
-		$select_product = "SELECT * FROM products;";
+		$select_shops = "SELECT * FROM shops;";
 		
-		$result = $conn->query($select_product);
+		$result = $conn->query($select_shops);
 
 		if ($result->num_rows > 0) {
 			
 			echo "<div class='list-group'>";
 			
 			while($row = $result->fetch_assoc()) {
-				echo "<a href='securde/product?title=".$row["p_id"]."' class='list-group-item'>";
-				echo "<h4 class='list-group-item-heading'>".$row["title"]."</h4>";
-				echo "<p class='list-group-item-text'>".$row["description"]."</p>";
-				echo "<p class='list-group-item-text'>₱".$row["price"]."</p>";
+				echo "<a href='shop.php?shop=".$row["s_id"]."' class='list-group-item'>";
+				echo "<h4 class='list-group-item-heading'>".$row["shop_name"]."</h4>";
 				echo "</a>";
 			}
 			
