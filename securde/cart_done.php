@@ -3,7 +3,17 @@
 	if(isset($_SESSION["product"]) == FALSE){
 		echo 'No item selected.';
 	}else{
-		echo 'Submitted...'
+		
+	$sql = "UPDATE products SET state='2' WHERE id=".$_SESSION["product"];
+
+		if ($conn->query($sql) === TRUE) {
+			echo "Record updated successfully";
+		} else {
+			echo "Error updating record: " . $conn->error;
+		}
+	$adddelivery= "INSERT INTO deliveries (p_id, saledate, fullname, address, py_id)
+					VALUES (".", "."".$_SESSION["fullname"].", ".$_SESSION["address"].", ". "";
+	
 	}
 		
 	

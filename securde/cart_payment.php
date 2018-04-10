@@ -3,7 +3,17 @@
 	if(isset($_SESSION["product"]) == FALSE){
 		echo 'No item selected.';
 	}else{
-		
+		$_SESSION["address"] = $_POST["street"]. " ".$_POST["other"]." ".$_POST["city"]." ".$_POST["postal"];
+		$_SESSION["fullname"] ="";
+		$Selectname="Select firstname, lastname from users where uname ==".$_SESSION["loggedinuser"];
+		$result = $conn->query($Selectname);
+		if($result->num_rows==1)
+		{
+			while($row = $result->fetch_assoc()) {
+				$_SESSION["fullname"]=$row["firstname"]." ".$row["lastname"];
+			}
+		}
+		//$_SESSION["product"]
 	
 ?>
 
@@ -14,12 +24,12 @@
 	<form class="form-horizontal center_div" action="cart_done.php" method="post">
 	  <div class="form-group">
 		<div class="radio">
-		  <label><input type="radio" value="card">Credit Card</label>
+		  <label><input type="radio" name="paytype" value="card">Credit Card</label>
 		</div>
 	  </div>
 	  <div class="form-group">
 		<div class="radio">
-		  <label><input type="radio" value="cash">Cash in Delivery</label>
+		  <label><input type="radio" name="paytype" value="cash">Cash in Delivery</label>
 		</div>
 	  </div>
 

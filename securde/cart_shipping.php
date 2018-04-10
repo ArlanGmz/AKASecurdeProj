@@ -12,31 +12,25 @@
 	  <div class="form-group">
 		<label class="control-label col-sm-2" for="street">Street Address:</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="street">
+		  <input type="text" class="form-control" id="street" name= "street">
 		</div>
 	  </div>
 	  <div class="form-group">
 		<label class="control-label col-sm-2" for="other">Apt./Suite/Other:</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="other">
+		  <input type="text" class="form-control" id="other" name= "other">
 		</div>
 	  </div>
 	  <div class="form-group">
 		<label class="control-label col-sm-2" for="city">City:</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="city">
+		  <input type="text" class="form-control" id="city" name= "city">
 		</div>
 	  </div>
 	  <div class="form-group">
 		<label class="control-label col-sm-2" for="postal">Postal Code:</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="postal">
-		</div>
-	  </div>
-	  <div class="form-row">
-		<label class="control-label col-sm-2" for="postal">Postal Code:</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="postal">
+		  <input type="text" class="form-control" id="postal" name = "postal">
 		</div>
 	  </div>
 	  <div class="form-group">
