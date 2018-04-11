@@ -140,7 +140,7 @@ INSERT INTO `p_status`
 			(2,'Sold');
             
 INSERT INTO `p_payment`
-	VALUES	(1,'Paypal'),
+	VALUES	(1,'Cash'),
 			(2,'Credit Card');
     
 INSERT INTO `users`(`uname`,`pcode`,`firstname`,`lastname`,`email`) 
