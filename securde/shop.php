@@ -52,8 +52,75 @@
 	echo "<h3 class='text-left'>".$s_name."</h3>";
 	echo "<p class='float-right'>Owner: ".$s_owner."</p>";
 	echo "<small>".$s_desc."</small><br>";
-	echo "<a href='' class='btn btn-info' role='button'>Edit</a><a href='' class='btn btn-info' role='button'>Add Product</a>" ;
+	echo "<a href='#shopEditModal' class='btn btn-info' role='button'>Edit</a><a href='#shopAddModal' class='btn btn-info' role='button'>Add Product</a>" ;
 	echo "</div>";
+	
+?>
+	<!-- Shop Edit Modal-->
+	<div id="shopEditModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Edit Item</h4>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
+						<div class="form-group">
+							<label for="i_name">Item Name:</label>
+							<input type="text" class="form-control" id="i_name" name="i_name">
+						</div>
+						<div class="form-group">
+							<label for="i_desc">Description:</label>
+							<input type="text" class="form-control" id="i_desc" name="i_desc">
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" name="i_num" value=<?php echo $row["p_id"];?>>
+						</div>
+			 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+			</form>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Add Product Modal-->
+	<div id="shopEditModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Edit Item</h4>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
+						<div class="form-group">
+							<label for="i_name">Item Name:</label>
+							<input type="text" class="form-control" id="i_name" name="i_name">
+						</div>
+						<div class="form-group">
+							<label for="i_desc">Description:</label>
+							<input type="text" class="form-control" id="i_desc" name="i_desc">
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" name="i_num" value=<?php echo $row["p_id"];?>>
+						</div>
+			 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+			</form>
+          </div>
+        </div>
+      </div>
+    </div>
+<?php
+	
 	/*The shop's products*/
 	
 	$result = $conn->query($acquire_products);
