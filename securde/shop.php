@@ -5,7 +5,31 @@
 	$get_shopinfo = "SELECT shop_name, description,firstname, lastname from shops s, users u, user_shops us WHERE s.s_id = us.s_id AND u.id=us.id AND us.s_id =".$seller;
 	$acquire_products = "SELECT * from products WHERE seller=".$seller;
 
+	/*When someone edits*/
+	if(isset($_POST["i_name"])||isset($_POST["i_desc"])){
+		if(!empty($_POST["i_name"])){
+			$change = $conn->prepare("UPDATE products SET title=? WHERE p_id=".$_POST["i_num"]);
+			$change->bind_param("s", $n);
+			$n = $_POST["i_name"];
+			$change->execute();
+		}else if(!empty($_POST["i_desc"])){
+			$change = $conn->prepare("UPDATE products SET description=? WHERE p_id=".$_POST["i_num"]);
+			$change->bind_param("s", $d);
+			$d = $_POST["i_desc"];
+			$change->execute();
+		}
+	}
+	/*
+	$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $firstname, $lastname, $email);
 
+// set parameters and execute
+$firstname = "John";
+$lastname = "Doe";
+$email = "john@example.com";
+$stmt->execute();
+*/
+	
 	/*The shop's name and description*/
 	
 	$result = $conn->query($get_shopinfo);
