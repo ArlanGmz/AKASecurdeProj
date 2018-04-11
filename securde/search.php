@@ -12,7 +12,10 @@
 			echo "<div class='list-group'>";
 			
 			while($row = $result->fetch_assoc()) {
-				echo "item found.///";
+				echo "<a href='product.php?title=".$row["p_id"]."' class='list-group-item'>";
+				echo "<h4 class='list-group-item-heading'>".$row["title"]."</h4>";
+				echo "<p class='list-group-item-text'>₱".$row["price"]."</p>";
+				echo "</a>";
 			}
 			
 			echo "</div>";
