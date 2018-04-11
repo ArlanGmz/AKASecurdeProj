@@ -25,6 +25,7 @@
 	echo "<h3 class='text-left'>".$s_name."</h3>";
 	echo "<p class='float-right'>Owner: ".$s_owner."</p>";
 	echo "<small>".$s_desc."</small>";
+	echo "<a href='cart_shipping.php?title=<?php echo $_SESSION['product'];?>' class='btn btn-info' role='button'>Edit</a>" 
 	echo "</div>";
 	/*The shop's products*/
 	
@@ -38,6 +39,8 @@
 				echo "<a href='product.php?title=".$row["p_id"]."' class='list-group-item'>";
 				echo "<h4 class='list-group-item-heading'>".$row["title"]."</h4>";
 				echo "<p class='list-group-item-text'>₱".$row["price"]."</p>";
+				echo "<a href='cart_shipping.php?title=<?php echo $_SESSION['product'];?>' class='btn btn-info' role='button'>Edit</a>" 
+				echo "<a href='cart_shipping.php?title=<?php echo $_SESSION['product'];?>' class='btn btn-info' role='button'>Remove</a>" 
 				echo "</a>";
 			}
 			
