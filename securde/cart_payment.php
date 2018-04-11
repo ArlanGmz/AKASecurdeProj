@@ -5,7 +5,8 @@
 	}else{
 		$_SESSION["address"] = $_POST["street"]. " ".$_POST["other"]." ".$_POST["city"]." ".$_POST["postal"];
 		$_SESSION["fullname"] ="";
-		$Selectname="Select firstname, lastname from users where uname ==".$_SESSION["loggedinuser"];
+		$loggeduser=$_SESSION["loggedinuser"];
+		$Selectname="Select firstname, lastname from users where uname ==".$loggeduser;
 		$result = $conn->query($Selectname);
 		if($result->num_rows==1)
 		{
@@ -13,7 +14,12 @@
 				$_SESSION["fullname"]=$row["firstname"]." ".$row["lastname"];
 			}
 		}
-		//$_SESSION["product"]
+		
+		
+		if(isset($_POST['submit'])){
+			$_SESSION["payid"] = $_POST['paytype'];  
+		
+		}
 	
 ?>
 
