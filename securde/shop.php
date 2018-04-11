@@ -30,6 +30,16 @@
 		$delete->execute();
 		unset($_POST["delete_num"]);
 	}
+	/*
+	$stmt = $conn->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $firstname, $lastname, $email);
+
+// set parameters and execute
+$firstname = "John";
+$lastname = "Doe";
+$email = "john@example.com";
+$stmt->execute();
+*/
 	
 	/*The shop's name and description*/
 	
@@ -52,8 +62,9 @@
 	echo "<h3 class='text-left'>".$s_name."</h3>";
 	echo "<p class='float-right'>Owner: ".$s_owner."</p>";
 	echo "<small>".$s_desc."</small><br>";
-	echo "<a href='#shopEditModal' class='btn btn-info' role='button'>Edit</a><a href='#shopAddModal' class='btn btn-info' role='button'>Add Product</a>" ;
+	echo "<a href='#shopEditModal' class='btn btn-info' role='button' data-toggle='modal'>Edit</a><a href='#shopAddModal' class='btn btn-info' role='button' data-toggle='modal'>Add Product</a>" ;
 	echo "</div>";
+	
 	
 ?>
 	<!-- Shop Edit Modal-->
@@ -62,20 +73,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Item</h4>
+            <h4 class="modal-title">Edit Shop Information</h4>
           </div>
           <div class="modal-body">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
 						<div class="form-group">
-							<label for="i_name">Item Name:</label>
+							<label for="i_name">Shop Name:</label>
 							<input type="text" class="form-control" id="i_name" name="i_name">
 						</div>
 						<div class="form-group">
 							<label for="i_desc">Description:</label>
 							<input type="text" class="form-control" id="i_desc" name="i_desc">
-						</div>
-						<div class="form-group">
-							<input type="hidden" class="form-control" name="i_num" value=<?php echo $row["p_id"];?>>
 						</div>
 			 
           </div>
@@ -89,25 +97,26 @@
     </div>
 	
 	<!-- Add Product Modal-->
-	<div id="shopEditModal" class="modal fade">
+	<div id="shopAddModal" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Item</h4>
+            <h4 class="modal-title">Add Product</h4>
           </div>
           <div class="modal-body">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
 						<div class="form-group">
-							<label for="i_name">Item Name:</label>
-							<input type="text" class="form-control" id="i_name" name="i_name">
+							<label for="ap_name">Item Name:</label>
+							<input type="text" class="form-control" id="ap_name" name="ap_name">
 						</div>
 						<div class="form-group">
-							<label for="i_desc">Description:</label>
-							<input type="text" class="form-control" id="i_desc" name="i_desc">
+							<label for="ap_desc">Description:</label>
+							<input type="text" class="form-control" id="ap_desc" name="ap_desc">
 						</div>
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="i_num" value=<?php echo $row["p_id"];?>>
+							<label for="ap_price">Price:</label>
+							<input type="number" class="form-control" id="ap_price" name="ap_price">
 						</div>
 			 
           </div>
@@ -120,7 +129,6 @@
       </div>
     </div>
 <?php
-	
 	/*The shop's products*/
 	
 	$result = $conn->query($acquire_products);
@@ -168,7 +176,6 @@
         </div>
       </div>
     </div>
-	
 	<!-- Delete Modal-->
 	<div id="deleteModal" class="modal fade">
       <div class="modal-dialog">
