@@ -1,9 +1,8 @@
 <?php
 	include_once 'header.php';
 	$_SESSION["shop"] = $_GET["shop"];
-	$seller = $_SESSION["shop"];
-	$get_shopinfo = "SELECT shop_name, description,firstname, lastname from shops s, users u, user_shops us WHERE s.s_id = us.s_id AND u.id=us.id AND us.s_id =".$seller;
-	$acquire_products = "SELECT * from products WHERE seller=".$seller;
+	$get_shopinfo = "SELECT shop_name, description,firstname, lastname from shops s, users u, user_shops us WHERE s.s_id = us.s_id AND u.id=us.id AND us.s_id =".$_SESSION["shop"];
+	$acquire_products = "SELECT * from products WHERE seller=".$_SESSION["shop"];
 
 	/*The shop's name and description*/
 	

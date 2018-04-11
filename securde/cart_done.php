@@ -11,18 +11,8 @@
 		} else {
 			echo "Error updating record: " . $conn->error;
 		}
-	//$adddelivery= "INSERT INTO deliveries (p_id, saledate, fullname, address, py_id) VALUES (".", "."".$_SESSION["fullname"].", ".$_SESSION["address"].", ". "";
-					
-	$stmt = $conn->prepare("INSERT INTO deliveries ( saledate, fullname, address, py_id) VALUES ( ?, ?, ?, ?)");
-	$stmt->bind_param("sssi", $saledate, $fullname, $address, $py_id);
-	
-	
-	$saledate = date("Y.m.d");
-	$fullname = $_SESSION["fullname"];
-	$address = $_SESSION["address"];
-	$py_id = $_SESSION["payid"];
-	
-	$stmt->execute();
+	$adddelivery= "INSERT INTO deliveries (p_id, saledate, fullname, address, py_id)
+					VALUES (".", "."".$_SESSION["fullname"].", ".$_SESSION["address"].", ". "";
 	
 	}
 		

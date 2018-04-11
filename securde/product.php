@@ -1,8 +1,8 @@
 <?php
 	include_once 'header.php';
 	$_SESSION["product"] = $_GET["title"];
-	$productid= $_SESSION["product"];
-	$get_product = "SELECT * from products WHERE p_id=".$productid;
+	
+	$get_product = "SELECT * from products WHERE p_id=".$_SESSION["product"];
 	$result = $conn->query($get_product);
 	$count = mysqli_num_rows($result);
 	
