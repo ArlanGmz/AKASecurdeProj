@@ -52,7 +52,7 @@
 	echo "<h3 class='text-left'>".$s_name."</h3>";
 	echo "<p class='float-right'>Owner: ".$s_owner."</p>";
 	echo "<small>".$s_desc."</small><br>";
-	echo "<a href='' class='btn btn-info' role='button'>Edit</a>" ;
+	echo "<a href='' class='btn btn-info' role='button'>Edit</a><a href='' class='btn btn-info' role='button'>Add Product</a>" ;
 	echo "</div>";
 	/*The shop's products*/
 	
