@@ -20,18 +20,12 @@
 			<div class="navbar-header">
 			  <a class="navbar-brand" href="index.php">The Marketplace</a>
 			</div>
-			<form class="navbar-form navbar-left" action="/action_page.php">
+			<form class="navbar-form navbar-left" action="search.php">
 			  <div class="form-group">
 				<input type="text" class="form-control" placeholder="Search" name="search">
 			  </div>
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
-			
-			<ul class="nav navbar-nav">
-				  <li><a href="#">Clothing</a></li>
-				  <li><a href="#">Entertainment</a></li>
-				  <li><a href="#">Tools</a></li>
-				</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#loginModal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
