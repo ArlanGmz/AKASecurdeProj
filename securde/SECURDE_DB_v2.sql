@@ -66,7 +66,7 @@ CREATE table products(
     seller INT NOT NULL,
     title VARCHAR(100) NOT NULL,
     price decimal(8,2) NOT NULL,
-    description VARCHAR(250) NULL,
+    description TEXT NULL,
     p_type INT NOT NULL,
     state INT NOT NULL,
     
@@ -140,7 +140,7 @@ INSERT INTO `p_status`
 			(2,'Sold');
             
 INSERT INTO `p_payment`
-	VALUES	(1,'Paypal'),
+	VALUES	(1,'Cash'),
 			(2,'Credit Card');
     
 INSERT INTO `users`(`uname`,`pcode`,`firstname`,`lastname`,`email`) 
@@ -150,6 +150,7 @@ INSERT INTO `users`(`uname`,`pcode`,`firstname`,`lastname`,`email`)
             ('cass_ce','bebebebe', 'Cassandra', 'Matias','c_matias@yahoo.com'),
             ('ag5598', 'gomez123', 'Arlan', 'Gomez','arlanross@gmail.com'),
             ('aric','aric123', 'Aric', 'Brillantes','aricbrillantes@gmail.com'),
+			('Yves', 'khob', 'Khobert', 'Linchangco','khobert_linchangco@dlsu.edu.ph'),
             ('ajctan','aron', 'Aron', 'Tan', 'arontan@yahoo.com');
             
 INSERT INTO `shops`(`shop_name`,`description`) 
@@ -166,7 +167,28 @@ INSERT INTO `user_shops`
             
 INSERT INTO `products`(`seller`,`title`,`price`,`description`, `state`,`p_type`) 
 	VALUES	(3, 'PSVita', 10000.00, 'PSVita phat, slight scratches, comes with a game(freedom wars)', 1, 8),
-			(2, 'Vanguard Deletor mat', 500.00, 'used few times', 1, 1),
-            (3, 'God of War collection', 600.00, 'PSVita game', 1, 14),
-			(2, 'Vanguard Dimensional Robo deck', 4000.00, 'Comes with sleeves and deckbox', 1, 14);
+			(3, 'God of War collection', 600.00, 'PSVita game', 1, 14),
+			(1, 'Craft Yarn Multi-function Knitting Board Knit & Weave Loom Kit DIY Tool Set', 1700.00, '', 1, 7),
+			(4, 'Complete Collection of Harry Potter Books', 2500.00, 'Used only for a few times', 1, 5),
+			(4, 'The Hunger Games Trilogy Boxset', 1500.00, 'Hard Cover box set', 1,5),
+			(4, 'The Maze Runner series', 2500.00, 'Hard Cover box set', 1,5),
+			(4, 'The Fault in our Stars', 600.00, 'Hard Cover book', 1,5),
+			(4, 'Percy Jackson and the Olympians 5 Book Paperback Boxed Set ', 2300.00, 'Hard Cover books (The Lightning Thief, The Sea of Monsters, The Titans Curse, The Battle of the Labyrinth, and The Last Olympian)', 1,5),
+			(4, 'Fifty Shades Trilogy', 3000.00, 'Hard Cover book set (Fifty Shades of Grey / Fifty Shades Darker / Fifty Shades Freed)', 1,5),
+			(2, 'GBT14  Divine Dragon Apocrypha 1',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GBT14  Divine Dragon Apocrypha 2',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GBT14  Divine Dragon Apocrypha 3',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GBT13  Ultimate Stride 1',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GBT13  Ultimate Stride 2',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GCB07  Divas Festa 1',2400.00,'Unopened and sealed', 1, 14),
+			(2, 'GBT13  Divas Festa 2',2400.00,'Unopened and sealed', 1, 14),
+			(4, 'Standard Size Mashiro sleeves', 1000.00, 'Mashiro from Mikakunun de shinkokei', 1, 1),
+			(4, 'Vanguard Deletor mat', 500.00, 'used few times', 1, 1),
+			(2, 'Card Binder with vanguard cards', 500.00, '',1, 1),
+			(2, 'Vanguard Dimensional Robo deck', 4000.00, 'Comes with sleeves and deckbox', 1, 14),
+			(1, 'Black Leather couch', 6000.00, '', 1, 9),
+			(3, 'Onesimus Barong Tagalog', 1500.00, 'Used only twice', 1, 6),
+			(1, 'Dog toys and treats', 1500.00, 'Treats come in beef, chicken, and pork flavors', 1, 12),
+			(3, 'Adidas Originals Superstar Foundation', 5000.00, 'Unisex', 1,13),
+			(3, 'Lenovo IdeaPad 320-14AST AMD A6-9220 - Platinum Grey', 19500.00,' 14-inch notebook powered by AMD A6-9220 Dual-core processor wih 1MB of cache, with AMD Radeon 530, equipped with 64-bit Windows 10 Operating System. It runs at 2.5GHz with 4GB of RAM and 2133MHz of RAM speed. It features HD display with 1366 x 768 pixel resolution. Weighing in at 2.1kg, the notebook features a Hard Disk Drive with 500GB of storage. It is 338.3 x 249.9 x 22.7 mm. Ports include 1x USB 2.0; 1 x USB 2.0; 3.5mm combo audio jack; 1 x HDMI; 1 x RJ-45; and memory card reader.', 1, 8);
             
