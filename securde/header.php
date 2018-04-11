@@ -1,20 +1,17 @@
 <?php
-	include_once 'database.php';
-	session_start();
+	include 'database.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>The Marketplace</title>
+		<title>CraftCourt</title>
 		
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="custom.css">
-
 	</head>
 	
 	<body>
@@ -29,6 +26,12 @@
 			  </div>
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
+			
+			<ul class="nav navbar-nav">
+				  <li><a href="#">Clothing</a></li>
+				  <li><a href="#">Entertainment</a></li>
+				  <li><a href="#">Tools</a></li>
+				</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
@@ -48,17 +51,17 @@
 					<h4 class="modal-title">Login Account</h4>
 				  </div>
 				  <div class="modal-body">
-					<form action="account_mng/login.php" method="post">
+					<form method = "POST"  action="account_mng/login.php" >
 						<div class="form-group">
 							<label for="uname">Username:</label>
-							<input type="text" class="form-control" id="uname">
+							<input type="text" class="form-control" id="uname" name="uname">
 						</div>
 						<div class="form-group">
 							<label for="uname">Password:</label>
-							<input type="password" class="form-control" id="pcode">
+							<input type="password" class="form-control" id="pcode" name= "pcode">
 						</div>
 
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn btn-default" name="sublog">Submit</button>
 					</form> 
 				  </div>
 				  <div class="modal-footer">
@@ -77,29 +80,29 @@
 					<h4 class="modal-title">Create Account</h4>
 				  </div>
 				  <div class="modal-body">
-					<form action="account_mng/signup.php" method="post">
+					<form method= "POST" action="account_mng/signup.php">
 						<div class="form-group">
 							<label for="email">Email Address:</label>
-							<input type="email" class="form-control" id="email">
+							<input type="email" class="form-control" id="email" name="email">
 						</div>
 						<div class="form-group">
 							<label for="fname">First Name/s:</label>
-							<input type="text" class="form-control" id="fname">
+							<input type="text" class="form-control" id="fname" name="fname">
 						</div>
 						<div class="form-group">
 							<label for="lname">Surname:</label>
-							<input type="text" class="form-control" id="lname">
+							<input type="text" class="form-control" id="lname" name="lname">
 						</div>
 						<div class="form-group">
 							<label for="uname">Username:</label>
-							<input type="text" class="form-control" id="uname">
+							<input type="text" class="form-control" id="uname" name="uname">
 						</div>
 						<div class="form-group">
 							<label for="uname">Password:</label>
-							<input type="password" class="form-control" id="pcode">
+							<input type="password" class="form-control" id="pcode" name="pcode">
 						</div>
 
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn btn-default" name="signup">Submit</button>
 					</form> 
 				  </div>
 				  <div class="modal-footer">
