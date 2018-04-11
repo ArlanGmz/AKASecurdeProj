@@ -101,6 +101,7 @@
         </div>
       </div>
     </div>
+	
 	<!-- Delete Modal-->
 	<div id="deleteModal" class="modal fade">
       <div class="modal-dialog">
