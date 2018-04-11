@@ -36,7 +36,7 @@ if (isset($_POST['sublog'])) {
 	if(count($errors) == 0) {
 	   
 	//	"SELECT * FROM users WHERE uname='$username' AND pcode='$password'";
-		$results = mysqli_query($db,"SELECT pcode FROM users WHERE uname='$username' ") or die("failure".mysql_error());
+		$results = mysqli_query($db,"SELECT * FROM users WHERE uname='$username' ") or die("failure".mysql_error());
           
 		  
 		  $hash = $results->fetch_assoc();
@@ -45,7 +45,7 @@ if (isset($_POST['sublog'])) {
 		if ( password_verify($password,$hash["pcode"])) {
 		
 			$_SESSION['username'] = $username;
-			setcookie("loggedinuser",$username);
+			setcookie("loggedinuser", $results["id"], time() + (86400 * 30), "/");
 			$_SESSION['success'] = "You are now logged in";
 			
              $words = $_SESSION['username'].'['.$_SERVER['REMOTE_ADDR'].'] has logged in.('.date("h:i:sa").')';
