@@ -8,7 +8,7 @@ $errors = array();
 $_SESSION['success'] = "";
 
 
- $db = mysqli_connect('localhost', 'root','','craftcourt_db');
+ $db = mysqli_connect('localhost', 'root','e01_bright','craftcourt_db');
  
 
 

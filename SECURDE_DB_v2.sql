@@ -144,14 +144,14 @@ INSERT INTO `p_payment`
 			(2,'Credit Card');
     
 INSERT INTO `users`(`uname`,`pcode`,`firstname`,`lastname`,`email`) 
-	VALUES	('1_admin','633367e0d6cfecc1a6a60536d6d97b03a455903da93d67bf561dc2803cf42040', 'Jan', 'Lagayan','alylagayan@gmail.com'), -- 01_admin
-			('rossmendez','16807e90ffbfe800d7fb27773574e1d08e229253d2e388c9e7e221b33e16b5a4', 'Ross', 'Mendez','rossmendez@gmail.com'), -- hOSANNA
-            ('doktoraBello','ade852c46f3c6393ced06bd9a885bf71ac07e2db149324bf06ea62c807574309', 'Vicki', 'Bello','bello_phd@gmail.com'), -- uyBESH
-            ('cass_ce','abaa35e56a2efea258ac3393228c91cb5e2f75635b492f60558ef34c24a6fb1e', 'Cassandra', 'Matias','c_matias@yahoo.com'), -- bebebebe
-            ('ag5598', '4043f749cda5e263c132cf209bd8bc3801b913923dee93b4686d0447926c1204', 'Arlan', 'Gomez','arlanross@gmail.com'), -- gomez123
-            ('aric','fe7af83b5433537b6d47fac41eb96107999a203afbb2949817141626eee261b6', 'Aric', 'Brillantes','aricbrillantes@gmail.com'), -- aric123
-			('Yves', '3feb4db620a2b44ddde33dc64a0973be30092c691250138a272061c58527087f', 'Khobert', 'Linchangco','khobert_linchangco@dlsu.edu.ph'), -- khob
-            ('ajctan','a5a28cfe2786537d28d4f57d4a15fe5813a973d3d6f9b9186033b8df50fac56b', 'Aron', 'Tan', 'arontan@yahoo.com'); -- aron
+	VALUES	('1_admin','$2b$10$gUjxKo/fv2VeRA62VeoePuEFQs4rdSmsutbv9RyCosUMQ8oW2HrGm', 'Jan', 'Lagayan','alylagayan@gmail.com'), -- 01_admin
+			('rossmendez','$2b$10$jVrGxF9.M6zYlGpeYiy1j.fAU9hm.jdueASqEXTCzmP4tITSpKBlm', 'Ross', 'Mendez','rossmendez@gmail.com'), -- hOSANNA
+            ('doktoraBello','$2b$10$PuyTGQR2TPkoxUv9Xa5vdu8EYXgNjRQEgtmfFyaQFS3rRmzLsApee', 'Vicki', 'Bello','bello_phd@gmail.com'), -- uyBESH
+            ('cass_ce','$2b$10$Huh8f3b/F2p9JgsdMxxUDeM23LAGXQU7FtsqR.JWBazUbP44Q4b2.', 'Cassandra', 'Matias','c_matias@yahoo.com'), -- bebebebe
+            ('ag5598', '$2b$10$Ol0CRD5TcjvUCd2L3vjjC.WOQ1iVUvTKlQdXOFdWA3SIJFqffU8kC', 'Arlan', 'Gomez','arlanross@gmail.com'), -- gomez123
+            ('aric','$2b$10$JvXaDDQA5rwdANZT7mNy.etaxo4/xfHb9amrcbZoW.tLUOa/oOtBi', 'Aric', 'Brillantes','aricbrillantes@gmail.com'), -- aric123
+			('Yves', '$2b$10$H2ss45y7lJc7mWGLzbWVruqgJ8Nt8YYS3LRqd6Qv4j/q0m.LjX2aC', 'Khobert', 'Linchangco','khobert_linchangco@dlsu.edu.ph'), -- khob
+            ('ajctan','$2b$10$P67fo38VvZ4z2dtKmSI0n.nBJ1dRghovVRPiwRUSn1xw4bjHH9S4u', 'Aron', 'Tan', 'arontan@yahoo.com'); -- aron
             
 INSERT INTO `shops`(`shop_name`,`description`) 
  	VALUES	('Book Cabin','Antique Books FTW'),

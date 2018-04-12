@@ -40,7 +40,11 @@
 			$d4=1;
 			$d5=$_POST['ap_type'];
 			
-		 
+			$product->execute();
+			
+			unset($_POST['ap_name']);
+			unset($_POST['ap_desc']);
+			unset($_POST['ap_price']);
 		 
 		 
 	 }

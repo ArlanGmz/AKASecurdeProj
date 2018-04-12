@@ -9,7 +9,7 @@ $_SESSION['success'] = "";
 
 
 
- $db = mysqli_connect('localhost', 'root','','craftcourt_db') or die("EN");
+ $db = mysqli_connect('localhost', 'root','e01_bright','craftcourt_db') or die("EN");
  
 if ( isset($_POST['signup']))
 {
