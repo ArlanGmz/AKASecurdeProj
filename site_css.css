@@ -1,0 +1,45 @@
+*{ margin:0;}
+
+.session{
+	padding: 5px;
+	margin: 15px;
+	float:right;
+	font-size: 20px;
+}
+
+.session a{
+	border: 3px black:
+}
+
+.header{
+	background-color:pink;
+	overflow:hidden;
+	padding: 14px 16px;
+}
+
+.header span{
+	font-size: 30px;
+}
+
+.header input{
+	float:right;
+}
+
+.categories{
+	background-color:pink;
+	overflow:hidden;
+	padding: 14px 16px;
+}
+
+.item{
+	background-color: violet;
+	overflow:auto;
+}
+
+.item_pic{
+	float:left;
+}
+
+.item_desc{
+	margin:20px;
+}

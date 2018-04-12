@@ -9,7 +9,7 @@ $datas = new Log();
 $username = "";
 
 $errors = array();
-$_SESSION['success'] = "";
+
 
 
  $db = mysqli_connect('localhost', 'root','','craftcourt_db');
@@ -41,12 +41,12 @@ if (isset($_POST['sublog'])) {
 		  
 		  $hash = $results->fetch_assoc();
 		  
-		
+		 
 		if ( password_verify($password,$hash["pcode"])) {
 		
 			$_SESSION['username'] = $username;
-			setcookie("loggedinuser", $results["id"], time() + (86400 * 30), "/");
-			$_SESSION['success'] = "You are now logged in";
+	
+			$_SESSION['loggedinuser'] = $hash["id"];
 			
              $words = $_SESSION['username'].'['.$_SERVER['REMOTE_ADDR'].'] has logged in.('.date("h:i:sa").')';
              $datas->List('CraftCourtLog_'.date("n.j.Y").'.txt',$words);
