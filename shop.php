@@ -167,22 +167,21 @@
 			 <div class="form-group" >
 			   <label for ="ap_type">Product Type:</label>
 			   <select class="form-control" id = "ap_type" name = "ap_type">
-			   <option value="1">Accesories</option>
-			   <option value="2">Art Collectibles</option>
-			   <option value="3">Bags</option>
-			   <option value="4">Beauty</option>
-			   <option value="5">Books, Movies, and Music</option>
-			   <option value="6">Clothing</option>
-			   <option value="7">Craft Supplies and Tools</option>
-			   <option value="8">Electronics</option>
-			   <option value="9">Home and Living</option>
-			   <option value="10">Jewelry</option>
-			   <option value="11">Party Supplies</option>
-			   <option value="12">Pet Supplies</option>
-			   <option value="13">Shoes</option>
-			   <option value="14">Toys and Games</option>
-			   <option value="15">Weddings</option>
-			  
+				   <option value="1">Accessories</option>
+				   <option value="2">Art Collectibles</option>
+				   <option value="3">Bags</option>
+				   <option value="4">Beauty</option>
+				   <option value="5">Books, Movies, and Music</option>
+				   <option value="6">Clothing</option>
+				   <option value="7">Craft Supplies and Tools</option>
+				   <option value="8">Electronics</option>
+				   <option value="9">Home and Living</option>
+				   <option value="10">Jewellry</option>
+				   <option value="11">Party Supplies</option>
+				   <option value="12">Pet Supplies</option>
+				   <option value="13">Shoes</option>
+				   <option value="14">Toys and Games</option>
+				   <option value="15">Weddings</option>	  
 			   </select>
 			   
 			 
