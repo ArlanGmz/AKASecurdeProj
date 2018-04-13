@@ -12,7 +12,7 @@ $errors = array();
 
 
 
- $db = mysqli_connect('localhost', 'root','','craftcourt_db');
+ $db = mysqli_connect('localhost', 'root','e01_bright','craftcourt_db');
  
 
 
@@ -56,7 +56,7 @@ if (isset($_POST['sublog'])) {
 			
             $words = 'Guest['.$_SERVER['REMOTE_ADDR'].'] has failed to logged in.('.date("h:i:sa").')';
             $datas->List('CraftCourtLog_'.date("n.j.Y").'.txt',$words);
-			header('Location:signup.php');
+			header('Location:../index.php');
 		}
 	}
 }

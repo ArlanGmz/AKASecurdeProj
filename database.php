@@ -1,7 +1,7 @@
  <?php
 	$servername = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "e01_bright";
 	$dbname = "craftcourt_db";
 
 	// Create connection

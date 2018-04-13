@@ -45,6 +45,8 @@
 			unset($_POST['ap_name']);
 			unset($_POST['ap_desc']);
 			unset($_POST['ap_price']);
+			
+		 
 		 
 		 
 	 }

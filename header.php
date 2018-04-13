@@ -34,11 +34,26 @@
 			
 			<ul class="nav navbar-nav navbar-right">
 	 		<?php	
+			
+				
 				if(isset($_SESSION['loggedinuser'])){
-				echo '<li><a href="sessionprocess.php" ><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>';
+					$is_shop = $conn->prepare("SELECT s_id from user_shops WHERE id = ?");
+					$is_shop->bind_param("i",$owner);
+					$owner = $_SESSION['loggedinuser'];
+					$is_shop->execute();
+					$result = $is_shop->get_result();
+					
+					if($result->num_rows === 1){
+						$row = $result->fetch_assoc();
+						echo '<li><a href="shop.php?shop='.$row["s_id"].'"><span class="glyphicon glyphicon-home"></span> Shop</a></li>';
+						echo '<li><a href="sessionprocess.php" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+					}else {
+						echo '<li><a href="create_shop.php" ><span class="glyphicon glyphicon-plus"></span> Create Shop</a></li>';
+						echo '<li><a href="sessionprocess.php" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+					}
 				}else{
- 	    		echo '<li><a href="#loginModal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
-				echo '<li><a href="#signupModal" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+					echo '<li><a href="#loginModal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+					echo '<li><a href="#signupModal" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
 			   }
 		?>	</ul>
 		  </div>
