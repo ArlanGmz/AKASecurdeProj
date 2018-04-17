@@ -211,8 +211,8 @@
 				
 				if(isset($_SESSION['loggedinuser'])){
 					if($row2["id"] == $_SESSION['loggedinuser']){
-						echo "<a class='btn btn-info' data-toggle='modal' data-pID='".$row["p_id"]."' href='#editModal'><span class='glyphicon glyphicon-cog'>".$row["p_id"]."</span></a>" ;
-						echo "<a class='btn btn-info' data-toggle='modal' data-dID='".$row["p_id"]."' href='#deleteModal'><span class='glyphicon glyphicon-remove'>".$row["p_id"]."</span></a>"; 
+						echo "<a class='btn btn-info' data-toggle='modal' data-pID='".$row["p_id"]."' href='#editModal'><span class='glyphicon glyphicon-cog'></span></a>" ;
+						echo "<a class='btn btn-info' data-toggle='modal' data-dID='".$row["p_id"]."' href='#deleteModal'><span class='glyphicon glyphicon-remove'></span></a>"; 
 					}
 				}
 				echo "</a>";
