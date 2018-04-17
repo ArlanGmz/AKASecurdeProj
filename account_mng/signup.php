@@ -36,6 +36,10 @@ if( empty($last)) {array_push($errors, "*Name is required"); }
   $results = mysqli_query($db,"SELECT uname from users WHERE uname ='$username'");
   if(mysqli_num_rows($results) > 0)
   {array_push($errors, "*Username is taken"); }
+  $pw_error = checkPassword($password, $errors)
+	if(!empty($pw_error)){
+		array_push($errors, $pw_error);
+	}
 
   
 
@@ -61,7 +65,24 @@ else
 
 
 
+} 
+
+/*Will Check If Password Contains A Set of Character*/ 
+ public function checkPassword($pwd) {
+    $errors=array();
+
+    if (strlen($pwd) < 8) {
+        $errors[] = "Password too short!";
+    }
+
+    if (!preg_match("#[0-9]+#", $pwd)) {
+        $errors[] = "Password must include at least one number!";
+    }
+
+    if (!preg_match("#[a-zA-Z]+#", $pwd)) {
+        $errors[] = "Password must include at least one letter!";
+    }     
+
+    return $errors;
 }
- 
- 
 ?>

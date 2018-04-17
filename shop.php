@@ -45,15 +45,14 @@
 			unset($_POST['ap_name']);
 			unset($_POST['ap_desc']);
 			unset($_POST['ap_price']);
-			
-		 
-		 
-		 
+	 
 	 }
-	 /*When someone edits*/
+	 /*When someone edits products*/
 	if(isset($_POST["i_name"])||isset($_POST["i_desc"])){
+		echo "Number: ".$_POST["i_num"];
 		if(!empty($_POST["i_name"])){
-			$change = $conn->prepare("UPDATE products SET title=? WHERE p_id=".$_POST["i_num"]);
+			echo "Name: ".$_POST["i_name"];
+			$change = $conn->prepare("UPDATE products SET title= ? WHERE p_id=".$_POST["i_num"]);
 			$change->bind_param("s", $n);
 			$n = $_POST["i_name"];
 			$change->execute();
@@ -61,12 +60,16 @@
 		}
 		
 		if(!empty($_POST["i_desc"])){
-			$change = $conn->prepare("UPDATE products SET description=? WHERE p_id=".$_POST["i_num"]);
+			echo "Desc:".$_POST["i_desc"];
+			$change = $conn->prepare("UPDATE products SET description= ? WHERE p_id=".$_POST["i_num"]);
 			$change->bind_param("s", $d);
 			$d = $_POST["i_desc"];
 			$change->execute();
 			unset($_POST["i_desc"]);
+			
 		}
+		
+		unset($_POST["i_num"]);
 	}
 	
 	/*Whe someone deletes*/
@@ -98,8 +101,6 @@
 	$row2 = null;
 	$row2 = $result2->fetch_assoc();
 
-	
-	
 	echo "<div class='well well-lg'>";
 	echo "<h3 class='text-left'>".$s_name."</h3>";
 	echo "<p class='float-right'>Owner: ".$s_owner."</p>";
@@ -109,6 +110,7 @@
 		if($row2["id"] == $_SESSION['loggedinuser'])
         	echo "<a href='#shopEditModal' class='btn btn-info' role='button' data-toggle='modal'>Edit</a><a href='#shopAddModal' class='btn btn-info' role='button' data-toggle='modal'>Add Product</a>" ;
 	echo "</div>";
+	
 	/*The shop's products*/
 	?><!-- Shop Edit Modal-->
 	<div id="shopEditModal" class="modal fade">
@@ -121,12 +123,12 @@
           <div class="modal-body">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
 						<div class="form-group">
-							<label for="i_name">Shop Name:</label>
-							<input type="text" class="form-control" id="i_name" name="s_name">
+							<label for="s_name">Shop Name:</label>
+							<input type="text" class="form-control" id="s_name" name="s_name">
 						</div>
 						<div class="form-group">
-							<label for="i_desc">Description:</label>
-							<input type="text" class="form-control" id="i_desc" name="s_desc">
+							<label for="s_desc">Description:</label>
+							<input type="text" class="form-control" id="s_desc" name="s_desc">
 						</div>
 						<div class="form-group">
 							<input type="hidden" class="form-control" name="s_num" value=<?php echo $seller;?>>
@@ -194,29 +196,37 @@
           </div>
         </div>
       </div>
-    </div><?php
+    </div>
+<?php
 	$result = $conn->query($acquire_products);
 	$count = mysqli_num_rows($result);
-
+	
 	if($count >= 1){
 		echo "<div class='list-group'>";
 			
-			while($row = $result->fetch_assoc()) {
+			while($row = $result->fetch_assoc()){
 				echo "<a href='product.php?title=".$row["p_id"]."' class='list-group-item'>";
-				echo "<h4 class='list-group-item-heading'>".$row["title"]."</h4>";
+				echo "<h4 class='list-group-item-heading'>".$row["p_id"].") ".$row["title"]."</h4>";
 				echo "<p class='list-group-item-text'>₱".$row["price"]."</p>";
-			 
-  			    if(isset($_SESSION['loggedinuser']))
-		        if($row2["id"] == $_SESSION['loggedinuser'])
-				{
-				echo "<a href='#editModal' class='btn btn-info' role='button' data-toggle='modal'><span class='glyphicon glyphicon-cog'></span></a>" ;
-				echo "<a href='#deleteModal' class='btn btn-info' role='button' data-toggle='modal'><span class='glyphicon glyphicon-remove'></span></a>"; 
-				}
 				
+				if(isset($_SESSION['loggedinuser'])){
+					if($row2["id"] == $_SESSION['loggedinuser']){
+						echo "<a class='btn btn-info' data-toggle='modal' data-pID='".$row["p_id"]."' href='#editModal'><span class='glyphicon glyphicon-cog'>".$row["p_id"]."</span></a>" ;
+						echo "<a class='btn btn-info' data-toggle='modal' data-dID='".$row["p_id"]."' href='#deleteModal'><span class='glyphicon glyphicon-remove'>".$row["p_id"]."</span></a>"; 
+					}
+				}
 				echo "</a>";
-?>				
+			}
+			
+			echo "</div>";
+			
+		} else {
+			echo "<p class='bg-warning text-center'>No products to display</p>";
+		}
+	
+?>
 	<!-- Edit Modal-->
-	<div id="editModal" class="modal fade">
+	<div id="editModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -234,7 +244,7 @@
 							<input type="text" class="form-control" id="i_desc" name="i_desc">
 						</div>
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="i_num" value=<?php echo $row["p_id"];?>>
+							<input type="text" class="form-control" name="i_num">
 						</div>
 			 
           </div>
@@ -247,18 +257,18 @@
       </div>
     </div>
 	<!-- Delete Modal-->
-	<div id="deleteModal" class="modal fade">
+	<div id="deleteModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Item</h4>
+            <h4 class="modal-title">Delete Item</h4>
           </div>
           <div class="modal-body">
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?shop=".$_SESSION["shop"]);?>">
 						<p>Are you sure you want to delete this item?</p>
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="delete_num" value=<?php echo $row["p_id"];?>>
+							<input type="text" class="form-control" id="delete_num" name="delete_num">
 						</div> 
           </div>
           <div class="modal-footer">
@@ -269,17 +279,21 @@
         </div>
       </div>
     </div>
-<?php
-			}
-			
-			echo "</div>";
-			
-		} else {
-			echo "<p class='bg-warning text-center'>No products to display</p>";
-		}
 	
-?>
-
+	
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#editModal').on('show.bs.modal', function(e) {
+								var prID = $(this).attr('data-pID');
+								$(this).find('input[name=i_num]').text(prID);
+			});
+									
+			$('#deleteModal').on('show.bs.modal', function(e) {
+								var dID = $(this).attr('data-dID');
+								$(this).find('input[name=delete_num]').val(dID);
+			});
+		});
+	</script>
 <?php
 	include 'footer.php';
 ?>

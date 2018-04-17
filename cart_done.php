@@ -3,30 +3,33 @@
 	if(isset($_SESSION["product"]) == FALSE){
 		echo 'No item selected.';
 	}else{
-		
-	$sql = "UPDATE products SET state='2' WHERE id=".$_SESSION["product"];
-
-		if ($conn->query($sql) === TRUE) {
-			echo "Record updated successfully";
-		} else {
-			echo "Error updating record: " . $conn->error;
+		/*Override Purchase*/
+		$override = $conn->prepare("UPDATE products SET state='2' WHERE id= ?".$_SESSION["product"]);
+		$override->bind_param("i",$id);
+		$id = $_SESSION["product"];
+		$override->execute();
+			
+		/*Place Delivery*/
+		$deliver = $conn->prepare("INSERT INTO deliveries ( saledate, fullname, address, py_id) VALUES ( ?, ?, ?, ?)");
+		$deliver->bind_param("sssi", $saledate, $fullname, $address, $py_id);
+		$saledate = date("Y/m/d");
+		$fullname = $_SESSION["fullname"];
+		$address = $_SESSION["address"];
+		/*Convert payment string to id num*/
+		$py_id = 0;
+		if(strcmp($_SESSION["payid"],"cash") == 0){
+				$py_id = 2;
+		}else{
+				$py_id = 1;
 		}
-	//$adddelivery= "INSERT INTO deliveries (p_id, saledate, fullname, address, py_id) VALUES (".", "."".$_SESSION["fullname"].", ".$_SESSION["address"].", ". "";
-					
-	$stmt = $conn->prepare("INSERT INTO deliveries ( saledate, fullname, address, py_id) VALUES ( ?, ?, ?, ?)");
-	$stmt->bind_param("sssi", $saledate, $fullname, $address, $py_id);
-	
-	
-	$saledate = date("Y.m.d");
-	$fullname = $_SESSION["fullname"];
-	$address = $_SESSION["address"];
-	$py_id = $_SESSION["payid"];
-	
-	$stmt->execute();
-	
+		$deliver->execute();
+		
+		echo '<div class="alert alert-success">';
+		echo '<strong>Success!</strong> Indicates a successful or positive action.';
+		echo '</div>';
 	}
 	
-	}
+
 		
 	
 ?>

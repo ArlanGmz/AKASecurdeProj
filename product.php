@@ -25,8 +25,13 @@
 		<p>Price: ₱<?php echo $pprice;?></p>
 		<p>Description:</p>
 		<p>"<?php echo $pdesc;?>"</p>
-		
-		<a href="cart_shipping.php?title=<?php echo $_SESSION["product"];?>" class="btn btn-info" role="button">Buy</a> 
+		<?php
+			if(isset($_SESSION['loggedinuser']) == FALSE){
+				echo '<div class="alert alert-info"><strong>Info!</strong> You must log in to buy this product.</div>';
+			}else{
+				echo '<a href="cart_shipping.php?title= '.$_SESSION["product"].'" class="btn btn-info" role="button">Buy</a>' ;
+			}
+		?>
 	  </div>
 	</div>
 

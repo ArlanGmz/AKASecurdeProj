@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
 	</head>
 	
 	<body>
@@ -41,6 +42,7 @@
 					
 					if($result->num_rows === 1){
 						$row = $result->fetch_assoc();
+						//echo '<li><a href=""><span class="glyphicon glyphicon-inbox"></span> Deliveries</a></li>';
 						echo '<li><a href="shop.php?shop='.$row["s_id"].'"><span class="glyphicon glyphicon-home"></span> Shop</a></li>';
 						echo '<li><a href="sessionprocess.php" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
 					}else {
