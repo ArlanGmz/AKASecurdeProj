@@ -3,12 +3,13 @@
 	if(isset($_SESSION["product"]) == FALSE){
 		echo 'No item selected.';
 	}else{
-		$_SESSION["address"] = $_POST["street"]. " ".$_POST["other"]." ".$_POST["city"]." ".$_POST["postal"];
+		$_SESSION["address"] = $_POST["street"]. " ".$_POST["other"]." ".$_POST["city"];
 		$_SESSION["fullname"] ="";
 		$loggeduser=$_SESSION["loggedinuser"];
-		$Selectname="Select firstname, lastname from users where uname ==".$loggeduser;
+		$Selectname="Select firstname, lastname from users where uname =".$_SESSION['username'];
 		$result = $conn->query($Selectname);
-		if($result->num_rows==1)
+		$count = mysqli_num_rows($result);
+		if($count == 1)
 		{
 			while($row = $result->fetch_assoc()) {
 				$_SESSION["fullname"]=$row["firstname"]." ".$row["lastname"];

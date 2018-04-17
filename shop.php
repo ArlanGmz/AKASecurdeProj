@@ -201,18 +201,28 @@
 	$result = $conn->query($acquire_products);
 	$count = mysqli_num_rows($result);
 	
+	$find = $conn->prepare("SELECT firstname, lastname from users WHERE uname= ? ");
+	$find->bind_param("s", $un);
+	$un = $_SESSION['username'];
+	$find->execute();
+				
+	$shopowner_1 = $find->get_result();
+	$shopowner_2 = $shopowner_1->fetch_assoc();
+	$shopowner_n = $shopowner_2["firstname"]." ".$shopowner_2["lastname"];	
+	
 	if($count >= 1){
 		echo "<div class='list-group'>";
-			
+				
 			while($row = $result->fetch_assoc()){
+				
 				echo "<a href='product.php?title=".$row["p_id"]."' class='list-group-item'>";
 				echo "<h4 class='list-group-item-heading'>".$row["p_id"].") ".$row["title"]."</h4>";
 				echo "<p class='list-group-item-text'>₱".$row["price"]."</p>";
 				
 				if(isset($_SESSION['loggedinuser'])){
 					if($row2["id"] == $_SESSION['loggedinuser']){
-						echo "<a class='btn btn-info' data-toggle='modal' data-pID='".$row["p_id"]."' href='#editModal'><span class='glyphicon glyphicon-cog'></span></a>" ;
-						echo "<a class='btn btn-info' data-toggle='modal' data-dID='".$row["p_id"]."' href='#deleteModal'><span class='glyphicon glyphicon-remove'></span></a>"; 
+						echo "<a class='btn btn-info' data-toggle='modal' data-pID='".$row["p_id"]."' href='#editModal'><span class='glyphicon glyphicon-cog'>".$row["p_id"]."</span></a>" ;
+						echo "<a class='btn btn-info' data-toggle='modal' data-dID='".$row["p_id"]."' href='#deleteModal'><span class='glyphicon glyphicon-remove'>".$row["p_id"]."</span></a>"; 
 					}
 				}
 				echo "</a>";
